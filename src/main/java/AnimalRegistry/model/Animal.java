@@ -6,11 +6,11 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public abstract class Animal implements Serializable {
-    protected static int counterId = 1;
-    protected int id = counterId++;
-    protected String nickname;
-    protected LocalDate birthday;
-    protected SortedSet<String> commands = new TreeSet<>();
+    private static int counterId = 1;
+    private final int id = counterId++;
+    private String nickname;
+    private LocalDate birthday;
+    private final SortedSet<String> commands = new TreeSet<>();
 
     public int getId() {
         return id;

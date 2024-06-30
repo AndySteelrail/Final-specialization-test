@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class RegistryInitialisation<A extends Animal> {
-    public void initFromFiles(Registry registry) throws Exception {
+    public String initFromFiles(Registry registry) throws Exception {
         TreeMap<Integer, Pet> newPets =
                 (TreeMap<Integer, Pet>) readRegistryFromFile("Pets");
         TreeMap<Integer, PackAnimal> newPackAnimals =
@@ -39,9 +39,10 @@ public class RegistryInitialisation<A extends Animal> {
                         packAnimal.getValue().getCommandsInString()));
             }
         }
+        return "Реестры наполнены значениями из файлов.\n";
     }
 
-    public void initWithAnimalCreator(Registry registry) {
+    public String initWithAnimalCreator(Registry registry) {
 
         registry.addAnimal(AnimalCreator.create(
                 AnimalType.Dog,
@@ -124,6 +125,8 @@ public class RegistryInitialisation<A extends Animal> {
                 "Sahara",
                 LocalDate.of(2015, 8, 14),
                 "Walk, Run"));
+
+        return "Реестры наполнены значениями по умолчанию.\n";
     }
 
     public TreeMap<Integer, A> readRegistryFromFile(String filename) throws Exception {
@@ -135,7 +138,7 @@ public class RegistryInitialisation<A extends Animal> {
         }
         catch(Exception ex){
             throw new Exception(
-                    "Не вышло прочитать животных из файла. Реестр пуст.");
+                    "Не вышло прочитать животных из файла. Реестр пуст.\n");
         }
     }
 
@@ -148,12 +151,13 @@ public class RegistryInitialisation<A extends Animal> {
         }
         catch(Exception ex){
             throw new Exception(
-                    "Не вышло записать животных файл. Реестр пуст.");
+                    "Не вышло записать животных файл. Реестр пуст.\n");
         }
     }
 
-    public void saveRegistriesToFile(Registry registry) throws Exception {
+    public String saveRegistriesToFile(Registry registry) throws Exception {
         writeRegistryToFile("Pets", (TreeMap<Integer, A>) registry.pets);
         writeRegistryToFile("PackAnimals", (TreeMap<Integer, A>) registry.packAnimals);
+        return "Реестры успешно сохранены в файл.\n";
     }
 }

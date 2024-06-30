@@ -6,7 +6,7 @@ import AnimalRegistry.model.Animal;
 import java.io.Serializable;
 
 public abstract class PackAnimal extends Animal implements Serializable {
-    protected static int counterPackAnimalId = 1;
+    private static int counterPackAnimalId = 1;
     protected int packAnimalId = counterPackAnimalId++;
 
     public int getPackAnimalId() {

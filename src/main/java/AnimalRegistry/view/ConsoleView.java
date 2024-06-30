@@ -63,6 +63,18 @@ public abstract class ConsoleView {
     }
 
     // Interface segregation principle
+    public static void printInitFromFilesMessage(String str) {
+        System.out.println(str);
+    }
+
+    public static void printInitWithAnimalCreatorMessage(String str) {
+        System.out.println(str);
+    }
+
+    public static void printSaveRegistriesToFiles(String str) {
+        System.out.println(str);
+    }
+
     public static void printAddedCommand(String str) {
         System.out.println(str);
     }

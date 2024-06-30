@@ -6,7 +6,7 @@ import AnimalRegistry.model.Animal;
 import java.io.Serializable;
 
 public abstract class Pet extends Animal implements Serializable {
-    protected static int counterPetId = 1;
+    private static int counterPetId = 1;
     protected int petId = counterPetId++;
 
     public int getPetId() {

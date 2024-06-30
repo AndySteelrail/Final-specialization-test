@@ -9,7 +9,8 @@ public abstract class ControllerInitialisation {
 
     static void initFromFiles(Registry registry) {
         try {
-            registryInit.initFromFiles(registry);
+            ConsoleView.printInitFromFilesMessage(
+                    registryInit.initFromFiles(registry));
         } catch (Exception e) {
             ConsoleView.printError(e.getMessage());
         }
@@ -17,7 +18,8 @@ public abstract class ControllerInitialisation {
 
     static void initWithAnimalCreator(Registry registry) {
         try {
-            registryInit.initWithAnimalCreator(registry);
+            ConsoleView.printInitWithAnimalCreatorMessage(
+                    registryInit.initWithAnimalCreator(registry));
         } catch (Exception e) {
             ConsoleView.printError(e.getMessage());
         }
@@ -25,7 +27,8 @@ public abstract class ControllerInitialisation {
 
     static void saveRegistriesToFiles(Registry registry) {
         try {
-            registryInit.saveRegistriesToFile(registry);
+            ConsoleView.printSaveRegistriesToFiles(
+                    registryInit.saveRegistriesToFile(registry));
         } catch (Exception e) {
             ConsoleView.printError(e.getMessage());
         }
