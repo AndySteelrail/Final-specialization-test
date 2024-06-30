@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 public abstract class PackAnimal extends Animal implements Serializable {
     private static int counterPackAnimalId = 1;
-    protected int packAnimalId = counterPackAnimalId++;
+    private final int packAnimalId = counterPackAnimalId++;
 
     public int getPackAnimalId() {
         return packAnimalId;

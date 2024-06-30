@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 public abstract class Pet extends Animal implements Serializable {
     private static int counterPetId = 1;
-    protected int petId = counterPetId++;
+    private final int petId = counterPetId++;
 
     public int getPetId() {
         return petId;

@@ -70,7 +70,7 @@ public class Registry {
         } else if (animal instanceof PackAnimal) {
             addPackAnimal((PackAnimal) animal);
         }
-        return "В реестр добавлен: " + animal.getNickname();
+        return "В реестр добавлен: " + animal.getNickname() + "\n";
     }
 
     private void addPet(Pet pet) {
@@ -93,13 +93,20 @@ public class Registry {
 
     public String removeAnimalByName(String name) {
         int id = getAnimalIdByName(name);
+        boolean result = false;
         if (pets.containsKey(id)) {
             removePet(pets.get(id));
+            result = true;
         }
         if (packAnimals.containsKey(id)) {
             removePackAnimal(packAnimals.get(id));
+            result = true;
         }
-        return "Из реестра удалён: " + name;
+        if (result) {
+            return "Из реестра удалён: " + name + "\n";
+        } else {
+            return "В реестре нет такого животного как: " + name + "\n";
+        }
     }
 
     private void removePet(Pet pet) {
