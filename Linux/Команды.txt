@@ -1,0 +1,50 @@
+1. Использование команды cat в Linux
+
+cat > Pets.txt << EOF
+Fido     Dog     2020-01-01     Sit, Stay, Fetch
+Whiskers Cat     2019-05-15     Sit, Pounce
+Hammy    Hamster 2021-03-10     Roll, Hide
+Buddy    Dog     2018-12-10     Sit, Paw, Bark
+Smudge   Cat     2020-02-20     Sit, Pounce, Scratch
+Peanut   Hamster 2021-08-01     Roll, Spin
+Bella    Dog     2019-11-11     Sit, Stay, Roll
+Oliver   Cat     2020-06-30     Meow, Scratch, Jump
+EOF
+
+cat > Pack_animals.txt << EOF
+Thunder	 Horse	 2015-07-21	Trot, Canter, Gallop
+Sandy	 Camel	 2016-11-03	Walk, Carry Load
+Eeyore	 Donkey	 2017-09-18	Walk, Carry Load, Bray
+Storm	 Horse	 2014-05-05	Trot, Canter
+Dune	 Camel	 2018-12-12	Walk, Sit
+Burro	 Donkey	 2019-01-23	Walk, Bray, Kick
+Blaze	 Horse	 2016-02-29	Trot, Jump, Gallop
+Sahara	 Camel	 2015-08-14	Walk, Run
+EOF
+
+2. Работа с директориями в Linux
+
+cat Pets.txt Pack_animals.txt > Zoology.txt &&
+mkdir Zoology &&
+mv Zoology.txt Zoology/Human_Friends.txt &&
+cd Zoology && ls &&
+cat Human_Friends.txt
+
+3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину ”
+
+sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.30-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb 
+sudo apt-get update
+sudo apt-get install mysql-server mysql-client -y
+
+# Необходимости заворачивать БД в контейнер нет, сразу удаляем. Использую MySQL на Windows. Увы.
+# Домашка по mysql'у в контейнере была, можно было её "сдуть". Не вижу принципиальной разницы
+# в терминал "лить" команды или в граф.интерфейс
+sudo apt remove mysql-server mysql-client
+
+4. Управление deb-пакетами
+
+# Подключаемся к первому попавшемуся под руку репозиторию (конвертер страниц в html, если верно понимаю)
+sudo wget http://ftp.de.debian.org/debian/pool/main/m/man2html/man2html-base_1.6g-14_amd64.deb
+sudo dpkg -i man2html-base_1.6g-14_amd64.deb
+sudo dpkg -r man2html-base
