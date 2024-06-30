@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public abstract class ConsoleView {
+    // BufferedReader reads information from the input stream into the console
+    // and cannot return an IOException. These Exceptions do not need to be handled.
+    // Also, there is no need to close it,
+    // the System.in stream will close itself when the program completes.
+    // Scanner is worse.
     private final static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
